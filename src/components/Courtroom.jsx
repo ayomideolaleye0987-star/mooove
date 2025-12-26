@@ -1,5 +1,7 @@
 import React from 'react'
 import { Building2, Clock, Gavel, ChevronRight } from 'lucide-react'
+import AnimatedJudge from './AnimatedJudge'
+import StampButton from './StampButton'
 
 export default function Courtroom({ phaseInfo, timeRemaining, activeCase, activeCaseId, currentPhase, pendingCases, onActivateCase, onGoToPolice, castVerdict, formatTime }) {
   const PhaseIcon = phaseInfo.icon
@@ -59,9 +61,9 @@ export default function Courtroom({ phaseInfo, timeRemaining, activeCase, active
               <div className="bg-red-600 text-white p-6 rounded-xl text-center"><Gavel className="w-12 h-12 mx-auto mb-3" /><p className="font-black text-2xl mb-2">CAST YOUR VERDICT</p><p className="font-bold">All rise for the jury decision</p></div>
 
               <div className="grid grid-cols-3 gap-4">
-                <button onClick={() => castVerdict('guilty')} className="bg-red-600 text-white py-6 rounded-xl font-black text-xl hover:bg-red-700 transition border-4 border-black shadow-lg hover:scale-105">GUILTY</button>
-                <button onClick={() => castVerdict('not guilty')} className="bg-black text-white py-6 rounded-xl font-black text-xl hover:bg-gray-900 transition border-4 border-black shadow-lg hover:scale-105">NOT GUILTY</button>
-                <button onClick={() => castVerdict('adjourn')} className="bg-white text-black py-6 rounded-xl font-black text-xl hover:bg-gray-100 transition border-4 border-black shadow-lg hover:scale-105">ADJOURN</button>
+                <StampButton onClick={() => castVerdict('guilty')} className="bg-red-600 text-white py-6 rounded-xl font-black text-xl hover:bg-red-700 transition border-4 border-black shadow-lg hover:scale-105">GUILTY</StampButton>
+                <StampButton onClick={() => castVerdict('not guilty')} className="bg-black text-white py-6 rounded-xl font-black text-xl hover:bg-gray-900 transition border-4 border-black shadow-lg hover:scale-105">NOT GUILTY</StampButton>
+                <StampButton onClick={() => castVerdict('adjourn')} className="bg-white text-black py-6 rounded-xl font-black text-xl hover:bg-gray-100 transition border-4 border-black shadow-lg hover:scale-105">ADJOURN</StampButton>
               </div>
             </div>
           )}

@@ -4,3 +4,10 @@
 
 html, body, #root { height: 100%; }
 body { @apply bg-white; }
+
+/* Badge styling */
+.badge { background: linear-gradient(90deg,#fff7ed,#fffbeb); border: 1px solid #fdf2e9; box-shadow: 0 1px 0 rgba(0,0,0,0.03); }
+.badge:focus { outline: none; box-shadow: 0 0 0 3px rgba(0,0,0,0.08); }
+.badge-emoji { font-size: 1.05rem }
+.badge-desc { max-width: 300px }
+

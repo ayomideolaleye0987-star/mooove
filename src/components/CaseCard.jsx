@@ -20,9 +20,12 @@ export default function CaseCard({ c, voted, onVote }) {
           <span className="font-black text-lg">{c.votes} VOTES</span>
         </div>
 
-        <button onClick={() => onVote(c.id)} disabled={voted} className={`px-6 py-2 rounded-lg font-black transition-all border-2 ${voted ? 'bg-gray-300 text-gray-600 cursor-not-allowed border-gray-400' : 'bg-red-600 text-white hover:bg-red-700 border-black'}`}>
-          {voted ? 'VOTED' : 'VOTE (+25 PTS)'}
-        </button>
+        <div className="flex items-center gap-2">
+          <button onClick={() => onOpen && onOpen(c.id)} className="px-4 py-2 rounded-lg border-2 border-black font-bold">OPEN</button>
+          <button onClick={() => onVote(c.id)} disabled={voted} className={`px-6 py-2 rounded-lg font-black transition-all border-2 ${voted ? 'bg-gray-300 text-gray-600 cursor-not-allowed border-gray-400' : 'bg-red-600 text-white hover:bg-red-700 border-black'}`}>
+            {voted ? 'VOTED' : 'VOTE (+25 PTS)'}
+          </button>
+        </div>
       </div>
     </div>
   )

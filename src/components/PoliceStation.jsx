@@ -3,7 +3,7 @@ import { AlertCircle, Shield, Zap } from 'lucide-react'
 import SubmitForm from './SubmitForm'
 import CaseCard from './CaseCard'
 
-export default function PoliceStation({ pendingCases, showSubmitForm, setShowSubmitForm, newCase, setNewCase, submitCase, votes, voteForCase, sirenActive }) {
+export default function PoliceStation({ pendingCases, showSubmitForm, setShowSubmitForm, newCase, setNewCase, submitCase, votes, voteForCase, sirenActive, onOpenCase }) {
   return (
     <div className="max-w-7xl mx-auto px-6 py-8">
       <div className="bg-gradient-to-r from-black via-gray-900 to-black border-4 border-red-600 rounded-xl p-8 mb-8 relative overflow-hidden shadow-2xl">
@@ -40,12 +40,20 @@ export default function PoliceStation({ pendingCases, showSubmitForm, setShowSub
       <div className="bg-gray-100 border-4 border-black rounded-xl p-6">
         <h3 className="text-2xl font-black mb-6 flex items-center gap-3"><AlertCircle className="w-7 h-7 text-red-600" />PENDING INVESTIGATIONS</h3>
 
+        <div className="mb-6">
+          <a className="px-4 py-2 rounded border-2 font-bold" href="#locker" onClick={(e)=>{e.preventDefault(); document.getElementById('evidence-locker')?.scrollIntoView({behavior:'smooth'})}}>Open Evidence Locker</a>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-6">
           {pendingCases.length === 0 ? (
             <p className="text-gray-500 font-bold text-center py-8 col-span-2">No pending cases</p>
           ) : (
-            pendingCases.map(c => <CaseCard key={c.id} c={c} voted={!!votes[c.id]} onVote={voteForCase} />)
+            pendingCases.map(c => <CaseCard key={c.id} c={c} voted={!!votes[c.id]} onVote={voteForCase} onOpen={onOpenCase} />)
           )}
+        </div>
+
+        <div id="evidence-locker" className="mt-12">
+          {/* placeholder locker component will be injected by App when needed */}
         </div>
       </div>
     </div>

@@ -17,3 +17,17 @@ export const storage = {
     localStorage.setItem(key, value)
   }
 }
+
+// Additional helpers to mirror supabase profile locally when offline
+export async function saveLocalProfile(profile) {
+  try {
+    localStorage.setItem('profile:' + profile.wallet, JSON.stringify(profile))
+  } catch (e) { console.error(e) }
+}
+
+export function loadLocalProfile(wallet) {
+  try {
+    const v = localStorage.getItem('profile:' + wallet)
+    return v ? JSON.parse(v) : null
+  } catch (e) { return null }
+}

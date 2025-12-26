@@ -23,8 +23,14 @@ export default function SubmitForm({ newCase, setNewCase, onSubmit, onCancel }) 
         </div>
 
         <div>
-          <label className="text-white font-bold mb-2 block">EVIDENCE (Transaction Hash, Images)</label>
-          <input value={newCase.evidence} onChange={e => setNewCase({...newCase, evidence: e.target.value})} className="w-full bg-white border-4 border-gray-300 rounded-lg px-6 py-4 font-bold text-black focus:outline-none focus:border-red-600 text-lg" placeholder="Paste links to evidence..." />
+          <label className="text-white font-bold mb-2 block">EVIDENCE (Transaction Link or Twitter status link)</label>
+          <input value={newCase.evidence} onChange={e => setNewCase({...newCase, evidence: e.target.value})} className="w-full bg-white border-4 border-gray-300 rounded-lg px-6 py-4 font-bold text-black focus:outline-none focus:border-red-600 text-lg" placeholder="Paste Snowtrace tx or Twitter status link..." />
+        </div>
+
+        <div className="flex items-center gap-4">
+          <label className="text-white font-bold">
+            <input type="checkbox" checked={!!newCase.anonymous} onChange={e => setNewCase({...newCase, anonymous: e.target.checked})} className="mr-2" /> Submit Anonymously
+          </label>
         </div>
 
         <div className="flex gap-4">

@@ -7,5 +7,10 @@ export const PHASES = {
 
 export const PAGES = {
   POLICE: 'police',
-  COURT: 'court'
+  COURT: 'court',
+  PROFILE: 'profile',
+  MY_CASES: 'my_cases',
+  DASHBOARD: 'dashboard',
+  ABOUT: 'about',
+  CASE: 'case'
 }

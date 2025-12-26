@@ -22,22 +22,50 @@ export default function Header({ points, wallet, onConnect, currentPage, setCurr
           <div className="flex items-center gap-4">
             <button
               onClick={() => setCurrentPage('police')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all ${
                 currentPage === 'police' ? 'bg-red-600 text-white shadow-lg scale-105' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               }`}
             >
               <Shield className="w-5 h-5" />
-              POLICE STATION
+              POLICE
             </button>
 
             <button
               onClick={() => setCurrentPage('court')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all ${
                 currentPage === 'court' ? 'bg-red-600 text-white shadow-lg scale-105' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               }`}
             >
               <Shield className="w-5 h-5" />
-              COURTROOM
+              COURT
+            </button>
+
+            <button
+              onClick={() => setCurrentPage('profile')}
+              className={`px-4 py-2 rounded-lg font-bold ${currentPage === 'profile' ? 'bg-gray-700 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
+            >
+              PROFILE
+            </button>
+
+            <button
+              onClick={() => setCurrentPage('my_cases')}
+              className={`px-4 py-2 rounded-lg font-bold ${currentPage === 'my_cases' ? 'bg-gray-700 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
+            >
+              MY CASES
+            </button>
+
+            <button
+              onClick={() => setCurrentPage('dashboard')}
+              className={`px-4 py-2 rounded-lg font-bold ${currentPage === 'dashboard' ? 'bg-gray-700 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
+            >
+              DASHBOARD
+            </button>
+
+            <button
+              onClick={() => setCurrentPage('about')}
+              className={`px-4 py-2 rounded-lg font-bold ${currentPage === 'about' ? 'bg-gray-700 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}
+            >
+              ABOUT
             </button>
           </div>
 
