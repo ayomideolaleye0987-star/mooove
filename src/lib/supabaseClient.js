@@ -8,3 +8,6 @@ if (!supabaseUrl || !supabaseAnonKey) {
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+// attach client to window for server-side token set by siweClient
+if (typeof window !== 'undefined') window.__SUPABASE_CLIENT__ = supabase

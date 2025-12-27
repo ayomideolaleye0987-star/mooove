@@ -39,3 +39,9 @@ jobs:
 
       - name: Run unit tests
         run: npm run test:unit
+
+      - name: Run SIWE RLS tests
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: npm run test:rls-siwe
